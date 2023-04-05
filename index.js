@@ -84,7 +84,6 @@ function calculateAge() {
     outputYears.innerHTML = calculatedYears
     outputMonths.innerHTML = calculatedMonths
     outputDays.innerHTML = caclulatedDays
-    
 
     determineError()
     // Error if inputs are empty
@@ -95,6 +94,15 @@ function calculateAge() {
             allInputs[i].nextElementSibling.style.display = 'none'
         }
     }  
+
+    birthDate = ''
+    birthMonth = ''
+    birthYear = ''
+    currentDate = new Date().getDate()
+    currentMonth = new Date().getMonth() + 1
+    currentYear = new Date().getFullYear()
+    monthsDays = []
+
 }
 
 // Error if not correct date format
