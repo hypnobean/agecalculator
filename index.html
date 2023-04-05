@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="card">
+    <div class="inputs">
+
+        <!-- TOP -->
+        <form action="">
+          <div>
+            <label for="day">Day</label>
+            <input type="text" name="day" placeholder="DD" maxlength="2" inputmode="numeric" pattern="/d+" step="1" autofocus>
+            <span>This field is required</span>
+          </div>
+          <div>
+            <label for="month">Month</label>
+            <input type="text" name="month" placeholder="MM" maxlength="2" inputmode="numeric" pattern="[0-9]">
+            <span>This field is required</span>
+          </div>
+          <div>
+            <label for="year">Year</label>
+            <input type="text" name="year" placeholder="YYYY" maxlength="4" inputmode="numeric" pattern="[0-9]">
+            <span>This field is required</span>
+          </div>
+        </div>
+        <!-- MIDDLE -->
+        <div class="breaker">
+          <button type="submit"><img src="images/icon-arrow.svg" alt="icon-arrow"></button>
+          <hr>
+        </div>
+        </form>
+
+
+
+    <!-- BOTTOM -->
+    <div class="output">
+      <div><span id="output-years">--</span> years</div>
+      <div><span id="output-months">--</span> months</div>
+      <div><span id="output-days">--</span> days</div>
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Amanda Love</a>.
+  </div>
+</div>
+
+  
+<!-- CDN example (jsDelivr) -->
+  <script src="index.js"></script>
+</body>
+</html>
