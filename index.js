@@ -9,6 +9,11 @@ const outputDays = document.getElementById('output-days')
 let currentDate = new Date().getDate()
 let currentMonth = new Date().getMonth() + 1
 let currentYear = new Date().getFullYear()
+let birthDate
+let birthMonth
+let birthYear
+let monthsDays = []
+
 
 
 // Focus next input when max characters reached, stop event listener on last element
@@ -43,11 +48,23 @@ submitButton.addEventListener('click', function(event) {
 })
 
 function calculateAge() {
-    monthsDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    var birthDate = inputDay.value
-    var birthMonth = (inputMonth.value)
-    var birthYear = inputYear.value
+    birthDate = inputDay.value
+    birthMonth = (inputMonth.value)
+    birthYear = inputYear.value
 
+    if (birthYear % 4 === 0) {
+        if (birthYear % 100 === 0) {
+            if (birthYear % 400 === 0) {
+                feb = 29
+            } else 
+                feb = 28
+        } else
+            feb = 29
+    } else {
+        feb = 28
+    }
+
+    monthsDays = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
     if (birthDate > currentDate) {
         currentDate = currentDate + monthsDays[birthMonth - 1]
@@ -59,6 +76,7 @@ function calculateAge() {
         currentMonth = currentMonth + 12
     }
 
+
     var caclulatedDays = currentDate - birthDate
     var calculatedMonths = currentMonth - birthMonth
     var calculatedYears = currentYear - birthYear
@@ -66,6 +84,8 @@ function calculateAge() {
     outputYears.innerHTML = calculatedYears
     outputMonths.innerHTML = calculatedMonths
     outputDays.innerHTML = caclulatedDays
+    
+
     determineError()
     // Error if inputs are empty
     for (i = 0; i < allInputs.length; i++) {
@@ -79,7 +99,7 @@ function calculateAge() {
 
 // Error if not correct date format
 function determineError() {
-    if (inputDay.value > 31 || inputDay.value.match(/^[a-zA-Z0 .!?"-]+$/)) {
+    if (birthDate > monthsDays[birthMonth - 1] || inputDay.value.match(/^[a-zA-Z0 .!?"-]+$/)) {
         allInputs[0].style.border = '1px solid red'
         allInputs[0].previousElementSibling.style.color = 'red'
         outputDays.innerHTML = '--'
