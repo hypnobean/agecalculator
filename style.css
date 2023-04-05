@@ -154,7 +154,7 @@ hr {
 @media screen and (max-width: 450px) {
     
     input {
-        font-size: 22px;
+        font-size: 10px;
     }
     .card {
         padding: 1rem;
